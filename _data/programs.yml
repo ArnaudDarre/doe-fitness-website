@@ -1,4 +1,5 @@
 - title: "Transformational Weight Loss Journey"
+  image: weight-loss-journey
   features:
     - title: Personalized nutrition and fitness plans
     - title: Mindfulness and stress management techniquesWeekly virtual check-ins and group support
@@ -9,6 +10,7 @@
     - title: Community support for motivation and accountability
 
 - title: "Mindful Eating and Self-Love Program"
+  image: mindful-eating
   features:
     - title: Mindful eating workshops and exercises
     - title: Self-love and body positivity coaching
@@ -19,6 +21,7 @@
     - title: Break free from emotional eating patterns.
 
 - title: "Wellness Over 30: Rediscover You"
+  image: wellness-over-30
   features:
     - title: Tailored fitness plans for women over 30
     - title: Nutritional guidance for hormonal balance

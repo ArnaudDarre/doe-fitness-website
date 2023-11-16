@@ -1,6 +1,7 @@
 // —————————————————————————————————————————————————————————————————
 // elements
 // position
+// variants
 // color
 // —————————————————————————————————————————————————————————————————
 
@@ -9,10 +10,10 @@
 // —————————————————————————————————————————————————————————————————
 
 .separator {
-  position: absolute;
-  left: 0;
   width: 100vw;
-  height: auto;
+  height: $spacing-separator;
+  z-index: 1;
+  fill: $background-default;
 }
 
 // —————————————————————————————————————————————————————————————————
@@ -21,10 +22,22 @@
 
 .separator {
 
-  &--top { top: -1px; }
-  &--bottom { bottom: -1px; transform: rotate(180deg); }
+  &--top {
+    @include calc(top, -$spacing-separator '+ 1px');
+    transform: rotate(180deg);
+  }
+
+  &--bottom {
+    @include calc(bottom, -$spacing-separator '+ 1px');
+  }
 }
 
 // —————————————————————————————————————————————————————————————————
 // color
 // —————————————————————————————————————————————————————————————————
+
+.separator {
+
+  &--paper { fill: $background-paper; }
+  &--primary { fill: $primary; }
+}

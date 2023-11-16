@@ -80,6 +80,7 @@ $spacing-xl: 5rem; // 80px
 $spacing-xxl: 7.5rem; // 120px
 
 $spacing-navbar: $spacing-md*4;
+$spacing-separator: 1.5rem;
 
 $spacing-section-vertical: clamp($spacing-lg, 8vw, $spacing-xl);
 $spacing-section-horizontal: clamp($spacing-md, 4vw, $spacing-xl);

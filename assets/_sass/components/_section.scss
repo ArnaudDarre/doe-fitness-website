@@ -12,7 +12,8 @@
 
 .section {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   position: relative;
   padding-right: $spacing-section-horizontal;
   padding-left: $spacing-section-horizontal;
@@ -61,7 +62,7 @@
   
   &__subtitle {
     @extend %subtitle;
-    margin-top: $spacing-lg;
+    margin-top: $spacing-lg - $spacing-md;
     max-width: $desktop-up*0.5;
   }
 
@@ -88,14 +89,50 @@
   &--paper {
     background-color: $background-paper;
   }
+  
+  &--primary {
+    background-color: $primary;
+    color: $primary-text;
+
+    .section {
+
+      &__lead,
+      &__title {
+        color: $primary-text;
+      }
+    }
+  }
 }
 
 // —————————————————————————————————————————————————————————————————
 // variants
 // —————————————————————————————————————————————————————————————————
 
+.section--background {
+  color: $primary-text;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba($primary, 0.6);
+  }
+
+  .section {
+
+    &__lead,
+    &__title {
+      color: $primary-text;
+    }
+  }
+}
+
 .section--landing {
-  @include calc(min-height, '100vh - '$spacing-lg); // remove on finalised website
+  @include calc(min-height, '100vh-'$spacing-lg'-'$spacing-separator); // remove on finalised website
+  justify-content: space-between;
   padding-top: $spacing-navbar;
   align-items: left;
   text-align: left;
@@ -117,7 +154,7 @@
 
   .section__label { @extend %h3; }
   .section__title { @extend %h1; max-width: $desktop-up*0.5; }
-  .section__subtitle { @extend %h5; max-width: $desktop-up*0.33; }
+  .section__subtitle { @extend %h5; max-width: $desktop-up*0.4; }
 }
 
 // —————————————————————————————————————————————————————————————————

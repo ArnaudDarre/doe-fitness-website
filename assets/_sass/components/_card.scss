@@ -12,14 +12,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-
-  &__label {
-    @extend %caption;
-  }
-
-  &__subtitle {
-    font-weight: $font-medium;
-  }
+  align-items: center;
 
   &__media,
   &__mediaInner {
@@ -31,12 +24,22 @@
     padding-bottom: 66.66%;
   }
 
+  &__icon {
+    height: $spacing-lg + $spacing-md;
+    width: $spacing-lg + $spacing-md;
+    fill: $text-alt;
+  }
+
   &__content {
     position: relative;
   }
 
   &__actions {
     margin-top: auto; // when grid with multiple cards, aligns the buttons vertically at the bottom of the card
+  }
+
+  &__title {
+    color: $primary;
   }
 }
 
@@ -48,7 +51,6 @@
 
   .card {
 
-		&__media,
 		&__header,
 		&__content,
 		&__actions {
@@ -79,11 +81,9 @@
 
     &__title {
 
-      @if $proportion == xs { @extend %body; @extend %text--bold; }
-      @else if $proportion == sm { @extend %subtitle; @extend %text--bold; }
-      @else if $proportion == md { @extend %h6; }
-      @else if $proportion == lg { @extend %h5; }
-      @else if $proportion == xl { @extend %h2; }
+      @if $proportion == sm { @extend %h6; }
+      @else if $proportion == md { @extend %h5; }
+      @else if $proportion == lg { @extend %h4; }
     }
 	}
 
@@ -96,13 +96,46 @@
 
 .card {
 
-  &--xs { @include size(xs, $spacing-sm); }
-  &--sm { @include size(sm, $spacing-md); }
+  &--sm { @include size(sm, $spacing-sm); }
 	&--md { @include size(md, $spacing-md); }
-	&--lg { @include size(lg, $spacing-md); }
-	&--xl { @include size(xl, $spacing-md*2); }
+	&--lg { @include size(lg, $spacing-md*1.5); }
 }
 
 // —————————————————————————————————————————————————————————————————
 // variants
 // —————————————————————————————————————————————————————————————————
+
+.card--testimonials {
+
+  .card__media {
+    height: $spacing-xxl;
+    width: $spacing-xxl;
+    border-radius: 50%;
+  }
+}
+
+.card--programs {
+  padding: $spacing-lg;
+  border-radius: $border-radius-md;
+  overflow: hidden;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba($background-default, 0.8);
+  }
+
+  > * {
+    position: relative;
+  }
+}
+
+.card--form {
+  padding: $spacing-md;
+  border-radius: $border-radius-md;
+  background-color: $background-default;
+}
