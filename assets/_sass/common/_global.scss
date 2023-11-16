@@ -29,8 +29,6 @@ body.js-freeze {
 	background-color: $background-default;
 	color: $text;
 	// needed for footer margin-top: auto if content smaller than viewport height
-	display: flex;
-	flex-direction: column;
 	min-height: 100vh;
 }
 

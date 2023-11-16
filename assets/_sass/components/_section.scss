@@ -33,6 +33,7 @@
     padding-bottom: $spacing-section-vertical;
     max-width: $desktop-up;
     position: relative; // needed to have the content over section--landing:before
+    align-items: stretch; // needed for testimonial carousel
   }
 
   &__header {

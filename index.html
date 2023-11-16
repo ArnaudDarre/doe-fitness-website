@@ -23,8 +23,7 @@ title: Index
     <div class="section__header">
       <h2 class="section__title">About Doe Fitness</h2>
       <div class="section__subtitle">
-        <p class="subtitle">At Doe Fitness, we understand that the path to feeling thin, pretty, and truly content in your skin is not just about
-          numbers on a scale—it's a journey of self-love, resilience, and sustainable health.</p>
+        <p class="subtitle">At Doe Fitness, we understand that the path to feeling good is not just about numbers on a scale—it's a journey of self-love, resilience, and sustainable health.</p>
         <p class="subtitle">In a world inundated with fleeting fitness trends and unrealistic beauty standards, our mission is to guide you through
           a personalized expedition, crafting a narrative of triumph over challenges and fostering a profound connection between
           your body, mind, and spirit.</p>
@@ -77,23 +76,34 @@ title: Index
       <h2 class="section__title">Don’t take our word for it</h2>
     </div>
     <div class="section__content">
-      <div class="grid grid--spacing5 grid--jcCenter">
-        {% for card in site.data.testimonials %}
-        <div class="grid__item grid__item--wrap">
-          <div class="card card--md card--testimonials">
-            <picture>
-              <source srcset="{% link assets/images/testimonials/{{ card.title | slugify }}.webp %}" type="image/webp">
-              <source srcset="{% link assets/images/testimonials/{{ card.title | slugify }}.jpg %}" type="image/jpeg">
-              <img src="{% link assets/images/testimonials/{{ card.title | slugify }}.jpg %}" alt="Portait of a woman" class="card__media">
-            </picture>
-            <p class="card__content">{{ card.content }}</p>
-            <div class="card__header">
-              <p class="card__title">{{ card.title }}</p>
-              <p class="card__subtitle caption">Coached for {{ card.duration }} months</p>
+      <div class="carousel">
+        <div class="carousel__content">
+          <span class="carousel__button button button--md button--icon button--grey">
+            {% svg assets/icons/arrow-left.svg %}
+          </span>
+          <div class="carousel__items">
+            {% for card in site.data.testimonials %}
+            <div class="carousel__item">
+              <div class="card card--md card--testimonials">
+                <picture>
+                  <source srcset="{% link assets/images/testimonials/{{ card.title | slugify }}.webp %}" type="image/webp">
+                  <source srcset="{% link assets/images/testimonials/{{ card.title | slugify }}.jpg %}" type="image/jpeg">
+                  <img src="{% link assets/images/testimonials/{{ card.title | slugify }}.jpg %}" alt="Portait of a woman"
+                    class="card__media">
+                </picture>
+                <p class="card__content">{{ card.content }}</p>
+                <div class="card__header">
+                  <p class="card__title">{{ card.title }}</p>
+                  <p class="card__subtitle caption">Coached for {{ card.duration }} months</p>
+                </div>
+              </div>
             </div>
+            {% endfor %}
           </div>
+          <span class="carousel__button button button--md button--icon button--grey">
+            {% svg assets/icons/arrow-right.svg %}
+          </span>
         </div>
-        {% endfor %}
       </div>
     </div>
   </div>
