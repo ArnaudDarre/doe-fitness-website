@@ -28,6 +28,13 @@
 
     &--wrap {
       flex: 1 0 0;
+      min-width: 20rem;
+      max-width: 30rem;
+      
+      @include responsive(down, laptop[
+      ]) {
+        max-width: 20rem;
+      }
     }
  
     &.grid {
