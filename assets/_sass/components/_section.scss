@@ -146,6 +146,10 @@
 		bottom: 0;
 		left: 0;
 		background-image: linear-gradient(to right, rgba($background-default, 1), rgba($background-default, 0));
+    
+    @include responsive(down, laptop) {
+      background-image: linear-gradient(to right, rgba($background-default, 1), rgba($background-default, 0.5));
+    }
 	}
 
   .section__container,
