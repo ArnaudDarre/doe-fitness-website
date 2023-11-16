@@ -1,7 +1,7 @@
 {% assign size = include.size %}
 {% assign color = include.color %}
 
-<a href="#contact" class="button button--{% if size %}{{ size}}{% else %}lg{% endif %} button--{% if color %}{{ color}}{% else %}primary{% endif %} button--animate">
+<a href="#contact" class="button button--{% if size %}{{ size}}{% else %}lg{% endif %} button--{% if color %}{{ color}}{% else %}secondary{% endif %} button--animate">
   <span class="button__inner">Get started</span>
   {% svg assets/icons/person-simple-run.svg %}
 </a>

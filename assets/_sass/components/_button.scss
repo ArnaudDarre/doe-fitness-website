@@ -130,6 +130,7 @@
 
 @include button-fill-color('button--',
 	'primary' $primary $primary-text,
+	'secondary' $secondary $secondary-text,
 	'white' $background-default $primary,
 
   'instagram' $instagram $text-contrast,
