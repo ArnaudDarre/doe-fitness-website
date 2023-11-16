@@ -3,12 +3,15 @@ layout: default
 title: 404
 ---
 
-<div class="section section--lg">
+<div class="section section--landing">
   <div class="section__container">
     <div class="section__header">
-      <h1 class="section__lead">404 Error</h1>
+      <h1 class="section__title">404 Error</h1>
       <div class="section__subtitle editor">
-        {% include components/list-item.html label='Back to homepage' url='index.html' %}
+        <a href="{% link index.html %}" class="button button--md button--primary button--animate">
+          <span class="button__inner">Back to homepage</span>
+          {% svg assets/icons/house.svg %}
+        </a>
       </div>
     </div>
   </div>
