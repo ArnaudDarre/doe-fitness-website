@@ -14,6 +14,7 @@
 .button {
 	cursor: pointer;
 	overflow: hidden;
+  letter-spacing: 0.05em;
   border: 0;
   display: inline-flex;
   border-radius: $border-radius-sm;
@@ -51,14 +52,15 @@
 
 @mixin size($proportion, $size) {
 	height: $size;
-  padding-right: $size/2.5;
-  padding-left: $size/2.5;
+  padding-right: $size/3;
+  padding-left: $size/3;
 	
 	.button__inner {
-		@if $proportion == sm { font-size: 0.875rem; }
+    @if $proportion == sm { font-size: 0.875rem; }
 		@else if $proportion == md { font-size: 1rem; }
 		@else if $proportion == lg { font-size: 1.125rem; }
 		letter-spacing: $size/100;
+    padding-bottom: 0.15em;
 	}
 
   svg {

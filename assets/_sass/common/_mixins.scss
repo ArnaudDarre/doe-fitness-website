@@ -127,11 +127,16 @@
 	}
 }
 
-@mixin font-size($font-size, $font-weight: $font-regular, $font-style: normal, $line-height: 1.5) {
+@mixin font-size($font-size, $font-weight: $font-regular, $font-style: normal, $line-height: 1.5, $font-name: "Barlow") {
+	font-family: $font-name;
 	font-size: $font-size + rem;
 	font-weight: $font-weight;
 	font-style: $font-style;
 	line-height: $line-height;
+
+	& + & {
+		margin-top: 1em;
+	}
 }
 
 @mixin text-ellipsis() {

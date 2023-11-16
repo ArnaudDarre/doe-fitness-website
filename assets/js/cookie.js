@@ -10,6 +10,6 @@ document.addEventListener("DOMContentLoaded", function() {
   const cookie_notice = ('; ' + document.cookie).split('; cookie_notice=').pop().split(';')[0];
 
   if (cookie_notice !== "0") {
-    document.getElementById("cookie").style.display = "block";
+    document.getElementById("cookie").style.display = "flex";
   }
 });

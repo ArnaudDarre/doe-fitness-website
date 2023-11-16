@@ -77,6 +77,8 @@ $spacing-lg: 2.5rem; // 40px
 $spacing-xl: 5rem; // 80px
 $spacing-xxl: 7.5rem; // 120px
 
+$spacing-navbar: $spacing-md*4;
+
 $spacing-section-vertical: clamp($spacing-lg, 8vw, $spacing-xl);
 $spacing-section-horizontal: clamp($spacing-md, 4vw, $spacing-xl);
 $spacing-section-horizontal-2: clamp($spacing-md*2, 8vw, $spacing-xl*2);
@@ -88,7 +90,7 @@ $spacing-section-horizontal-negative: clamp(-$spacing-xl, -4vw, -$spacing-md);
 
 // typefaces
 
-$font-title: "Baloo", Verdana, Geneva, sans-serif;
+$font-title: "Rubik", Verdana, Geneva, sans-serif;
 $font: "Barlow", Verdana, Geneva, sans-serif;
 
 // weight

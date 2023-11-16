@@ -48,14 +48,20 @@
     }
   }
 
+  &__label {
+    margin-bottom: $spacing-md;
+    color: $primary;
+  }
+
   &__title {
     @extend %h2;
-    max-width: $desktop-up*0.5;
+    max-width: $desktop-up*0.75;
+    color: $primary;
   }
   
   &__subtitle {
     @extend %subtitle;
-    margin-top: $spacing-lg - $spacing-md;
+    margin-top: $spacing-lg;
     max-width: $desktop-up*0.5;
   }
 
@@ -90,9 +96,9 @@
 
 .section--landing {
   @include calc(min-height, '100vh - '$spacing-lg); // remove on finalised website
-  margin-bottom: $spacing-lg; // remove on finalised website
-  color: $primary-text;
-  align-items: center;
+  padding-top: $spacing-navbar;
+  align-items: left;
+  text-align: left;
 
   &:before {
 		content: "";
@@ -101,11 +107,17 @@
 		right: 0;
 		bottom: 0;
 		left: 0;
-		background-color: rgba($primary-dark, 0.7);
+		background-image: linear-gradient(to right, rgba($background-default, 1), rgba($background-default, 0));
 	}
 
-  .section__title { @extend %h1; }
-  .section__subtitle { @extend %h5; }
+  .section__container,
+  .section__header {
+    align-items: flex-start;
+  }
+
+  .section__label { @extend %h3; }
+  .section__title { @extend %h1; max-width: $desktop-up*0.5; }
+  .section__subtitle { @extend %h5; max-width: $desktop-up*0.33; }
 }
 
 // —————————————————————————————————————————————————————————————————

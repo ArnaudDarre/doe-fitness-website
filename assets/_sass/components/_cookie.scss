@@ -1,15 +1,13 @@
-.cookie {
+.cookie.section {
   @include transition($transition-md, transform);
   position: fixed;
   right: 0;
   bottom: 0;
   left: 0;
   display: none;
-  align-items: baseline;
-  justify-content: space-between;
-  padding: 11px $spacing-section-horizontal-2 11px $spacing-section-horizontal;
   background-color: $background-default;
-
+  text-align: left;
+  
   @include responsive(down, mobile) {
     padding-right: $spacing-lg;
   }
@@ -17,5 +15,13 @@
   &.js-cookie-accepted {
     @include transition($transition-md, transform);
     transform: translateY(100%);
+  }
+  
+  .section__container {
+    padding-top: 9px;
+    padding-bottom: 10px;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: flex-start;
   }
 }

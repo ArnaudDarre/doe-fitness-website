@@ -17,6 +17,7 @@
           <a class="nav__trigger{% if page.title == item.title or page.layout == item.collection %} nav__trigger--active{% endif %}" href="#{{ item.title | slugify }}" data-text="{{ item.title }}">{{ item.title }}</a>
         </li>
         {% endfor %}
+        {% include components/button.html size="sm" %}
       </ul>
     </nav>
   </div>

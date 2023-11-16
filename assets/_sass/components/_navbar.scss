@@ -14,18 +14,18 @@
   background-color: $background-default;
 
   @include responsive(up, tablet) {
-    height: $spacing-xl;
+    height: $spacing-navbar;
   }
 
   &.section {
-    position: sticky;
+    position: fixed;
   }
 
   .section__container {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    padding-top: $spacing-lg - $spacing-md;
+    padding-top: 0;
     padding-bottom: 0;
     border-bottom: $border;
 
@@ -92,6 +92,7 @@
 
   &__container {
     display: flex;
+    align-items: center;
     list-style: none;
 
     @include responsive(up, tablet) {
@@ -112,6 +113,7 @@
   &__item {
     // override ul & li styling
     margin-left: 0;
+    display: flex;
 
     & + & {
       padding-top: 0;
