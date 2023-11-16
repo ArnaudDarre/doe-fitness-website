@@ -3,12 +3,128 @@ layout: default
 title: Index
 ---
 
-<div class="section section--landing background-cover" style="background-image: url('{% link assets/images/landing-image.webp %}'), url('{% link assets/images/landing-image.jpg %}');">
+<div id="home" class="section section--landing background-cover" 
+  style="background-image: url('{% link assets/images/landing-image.webp %}'), url('{% link assets/images/landing-image.jpg %}');">
   <div class="section__container">
     <div class="section__header">
-      <h1 class="section__title">{{ site.data.index.title }}</h1>
-      <p class="section__subtitle">{{ site.data.index.subtitle }}</p>
-      <p class="section__actions h4">{{ site.data.index.content }}</p>
+      <p class="section__label">Unlock Your Best Self</p>
+      <h1 class="section__title">A Journey to Wellness with Doe Fitness</h1>
+      <p class="section__subtitle">Embark on a transformative odyssey toward holistic well-being and discover the empowered, confident version of yourself.</p>
+    </div>
+    <div class="section__actions">
+      <button class="button button--lg button--primary">Get started</button>
+    </div>
+  </div>
+</div>
+
+<div id="about" class="section">
+  <div class="section__container">
+    <div class="section__header">
+      <h2 class="section__title">About Doe Fitness</h2>
+      <div class="section__subtitle editor">
+        <p class="subtitle">At Doe Fitness, we understand that the path to feeling thin, pretty, and truly content in your skin is not just about
+        numbers on a scale—it's a journey of self-love, resilience, and sustainable health.</p>
+        <p class="subtitle">In a world inundated with fleeting fitness trends and unrealistic beauty standards, our mission is to guide you through
+        a personalized expedition, crafting a narrative of triumph over challenges and fostering a profound connection between
+        your body, mind, and spirit.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="values" class="section">
+  <div class="section__container">
+    <div class="section__header">
+      <h2 class="section__title">Values and philosophy</h2>
+    </div>
+    <div class="section__content">
+      <div class="grid grid--spacing5">
+        {% for card in site.data.values %}
+        <div class="card card--md card--values">
+          <div class="card__header">
+            {% svg "assets/icons/{{ card.icon }}.svg" class="card__icon" %}
+            <h3 class="card__title">{{ card.title }}</h3>
+            <p class="card__subtitle">{{ card.subtitle }}</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section section--background">
+  <div class="section__container">
+    <div class="section__header">
+      <p class="section__title">At Doe Fitness, we believe in the power of sustainable change and the beauty of self-discovery</p>
+    </div>
+    <div class="section__actions">
+      <button class="button button--lg button--primary">Get started</button>
+    </div>
+  </div>
+</div>
+
+<div id="testimonials" class="section">
+<div class="section__container">
+    <div class="section__header">
+      <h2 class="section__title">Don’t take our word for it</h2>
+    </div>
+    <div class="section__content">
+      <div class="grid grid--spacing5">
+        {% for card in site.data.testimonials %}
+        <div class="card card--sm card--values">
+          <p class="card__content">{{ card.content }}</p>
+          <div class="card__header">
+            <p class="card__title">{{ card.title }}</p>
+            <p class="card__subtitle">Coached for {{ card.duration }} months</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="programms" class="section">
+  <div class="section__container">
+    <div class="section__header">
+      <h2 class="section__title">Our programs</h2>
+    </div>
+    <div class="section__content">
+      <div class="grid grid--spacing2">
+        {% for card in site.data.programs %}
+        <div class="card card--sm card--values">
+          <div class="card__header">
+            <h3 class="card__title">{{ card.title }}</h3>
+          </div>
+          <div class="card__content">
+            <p class="h6 mb-2">Key Features</p>
+            {% for item in card.features %}
+            <p>{{ item.title }}</p>
+            {% endfor %}
+          </div>
+          <div class="card__content">
+            <p class="h6 mb-2">Benefits</p>
+            {% for item in card.features %}
+            <p>{{ item.title }}</p>
+            {% endfor %}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="contact" class="section">
+  <div class="section__container">
+    <div class="section__header">
+      <h2 class="section__title">Transform Your Life Now</h2>
+      <p class="section__subtitle">Let go of the weight—both physical and emotional—that has held you back. Together, let us redefine beauty, health, and
+      happiness. Your journey to feeling and looking your best begins now.</p>
+    </div>
+    <div class="section__actions">
+      <button class="button button--lg button--primary">Get started</button>
     </div>
   </div>
 </div>

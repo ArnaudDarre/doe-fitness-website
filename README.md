@@ -1,6 +1,6 @@
 # Doe Fitness
 
-Embark on a transformative odyssey toward holistic well-being and discover the empowered, confident version of yourself
+Landing page for a woman wellness coach
 
 ## Run and deploy
 
