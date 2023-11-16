@@ -7,20 +7,14 @@
   color: $primary;
   text-decoration: underline;
   white-space: nowrap;
-
+  
   svg {
-    @include transition($transition-md, stroke-width);
     height: 1em;
     width: 1em;
     margin-left: 0.25em;
-    stroke-width: 2;
   }
-
+  
   @include hover {
-    animation: get-bold $transition-md forwards;
-
-    svg {
-      stroke-width: 3;
-    }
+    text-decoration: none;
   }
 }

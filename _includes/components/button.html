@@ -1,5 +1,6 @@
 {% assign size = include.size %}
 
-<button class="button button--{% if size %}{{ size}}{% else %}lg{% endif %} button--primary">
+<button class="button button--{% if size %}{{ size}}{% else %}lg{% endif %} button--primary button--animate">
   <span class="button__inner">Get started</span>
+  {% svg assets/icons/person-simple-run.svg %}
 </button>

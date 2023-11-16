@@ -167,7 +167,7 @@
 			color: nth($i, 3);
 			
 			svg {
-				stroke: nth($i, 3);
+				fill: nth($i, 3);
 			}
 			
 			&.button--transparent {
@@ -175,7 +175,7 @@
 				color: nth($i, 2);
 				
 				svg {
-					stroke: nth($i, 2);
+					fill: nth($i, 2);
 				}
 			}
 		}

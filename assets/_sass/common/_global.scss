@@ -113,15 +113,6 @@ a {
 	cursor: pointer;
 }
 
-// iframe
-
-iframe {
-	display: block; // remove bottom spacing
-	width: 100%;
-	border-radius: $border-radius-md;
-	border: $border;
-}
-
 // —————————————————————————————————————————————————————————————————
 // misc
 // —————————————————————————————————————————————————————————————————
@@ -192,7 +183,7 @@ $step: 5;
 	.z-index--#{$i} { z-index: $i; }
 }
 
-.widgets { z-index: 10; }
+.cookie { z-index: 10; }
 header { z-index: 11; }
 
 // background
