@@ -1,0 +1,178 @@
+// —————————————————————————————————————————————————————————————————
+// general
+// media querie
+// font
+// form
+// button
+// —————————————————————————————————————————————————————————————————
+
+// —————————————————————————————————————————————————————————————————
+// general
+// —————————————————————————————————————————————————————————————————
+
+@mixin calc($property, $expression) {
+	#{$property}: -webkit-calc(#{$expression});
+	#{$property}: calc(#{$expression});
+}
+
+@mixin background($position, $size) {
+	background-position: $position;
+	-webkit-background-size: $size;
+			background-size: $size;
+	background-repeat: no-repeat;
+}
+
+@mixin pseudo-element($content, $top, $right, $bottom, $left, $width, $height) {
+	content: $content;
+	position: absolute;
+	top: $top;
+	right: $right;
+	bottom: $bottom;
+	left: $left;
+	width: $width;
+	height: $height;
+}
+
+@mixin hover {
+	&:hover, &:active, &:focus {
+		@content;
+	}
+}
+
+@mixin keyframes($name) {
+	@-webkit-keyframes #{$name} {
+		@content; 
+	}
+	@-moz-keyframes #{$name} {
+		@content;
+	}
+	@-ms-keyframes #{$name} {
+		@content;
+	}
+	@keyframes #{$name} {
+		@content;
+	} 
+}
+
+@mixin transition($time, $properties...) {
+	$transition: ();
+	$will-change: ();
+  @each $property in $properties {
+    $transition: append(
+        $transition, ($property $time), $separator: comma
+    );
+    $will-change: append(
+        $will-change, ($property), $separator: comma
+    );
+  }
+	transition: $transition;
+	will-change: $will-change;
+}
+
+// —————————————————————————————————————————————————————————————————
+// media queries
+// —————————————————————————————————————————————————————————————————
+
+@mixin responsive($value, $breakpoint) {
+  @if $value == up {
+    $value: min-width;
+    @if $breakpoint == desktop-lg { $breakpoint: $desktop-lg-up; } 
+    @else if $breakpoint == desktop { $breakpoint: $desktop-up; } 
+    @else if $breakpoint == laptop { $breakpoint: $laptop-up; } 
+    @else if $breakpoint == tablet { $breakpoint: $tablet-up; } 
+    @else if $breakpoint == mobile { $breakpoint: $mobile-up; } 
+    @else if $breakpoint == mobile-sm { $breakpoint: $mobile-sm-up; }
+
+  } @else if $value == down {
+    $value: max-width;
+    @if $breakpoint == desktop-lg { $breakpoint: $desktop-lg-down; } 
+    @else if $breakpoint == desktop { $breakpoint: $desktop-down; } 
+    @else if $breakpoint == laptop { $breakpoint: $laptop-down; } 
+    @else if $breakpoint == tablet { $breakpoint: $tablet-down; } 
+    @else if $breakpoint == mobile { $breakpoint: $mobile-down; } 
+    @else if $breakpoint == mobile-sm { $breakpoint: $mobile-sm-down; }
+  }
+
+  @media ($value: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin responsive-touch {
+	@media (pointer:coarse) {
+		@content;
+	}
+}
+
+@mixin responsive-touch-landscape {
+	@media only screen and (max-device-width: $laptop-down) and (orientation: landscape) {
+		@content;
+	}
+}
+
+// —————————————————————————————————————————————————————————————————
+// font
+// —————————————————————————————————————————————————————————————————
+
+@mixin fontface($font-name, $font-file, $font-weight, $font-style) {
+
+	@font-face {
+		font-family: $font-name;
+		src: url('../fonts/' + $font-file + '.woff2') format('woff2'),
+			url('../fonts/' + $font-file + '.woff') format('woff'),
+			url('../fonts/' + $font-file + '.ttf') format('truetype');
+		font-weight: $font-weight;
+		font-style: $font-style;
+		font-display: swap;
+	}
+}
+
+@mixin font-size($font-size, $font-weight: $font-regular, $font-style: normal, $line-height: 1.5) {
+	font-size: $font-size + rem;
+	font-weight: $font-weight;
+	font-style: $font-style;
+	line-height: $line-height;
+}
+
+@mixin text-ellipsis() {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+// —————————————————————————————————————————————————————————————————
+// form
+// —————————————————————————————————————————————————————————————————
+
+@mixin placeholder {
+	:-moz-placeholder { @content; }
+	::-moz-placeholder { @content; }
+	:-ms-input-placeholder { @content; }
+	::-webkit-input-placeholder { @content; } 
+}
+
+// —————————————————————————————————————————————————————————————————
+// button
+// —————————————————————————————————————————————————————————————————
+
+@mixin button-fill-color($prefix, $colors...) {
+	@each $i in $colors {
+		.#{$prefix}#{nth($i, 1)} {
+			background-color: nth($i, 2);
+			color: nth($i, 3);
+			
+			svg {
+				stroke: nth($i, 3);
+			}
+			
+			&.button--transparent {
+				background-color: transparent;
+				color: nth($i, 2);
+				
+				svg {
+					stroke: nth($i, 2);
+				}
+			}
+		}
+	}
+}

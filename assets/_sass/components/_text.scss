@@ -1,0 +1,103 @@
+// —————————————————————————————————————————————————————————————————
+// elements
+// style
+// weight
+// alignement
+// color
+// —————————————————————————————————————————————————————————————————
+
+// —————————————————————————————————————————————————————————————————
+// elements
+// —————————————————————————————————————————————————————————————————
+
+.h1, %h1 {
+	@include font-size(3.5, $font-black, normal, 1.25);
+	@include responsive (down, tablet) { font-size: 3rem; line-height: 1.1 }
+}
+
+.h2, %h2 {
+	@include font-size(3, $font-black, normal, 1.25);
+	@include responsive (down, tablet) { font-size: 2.75rem; line-height: 1.1 }
+}
+
+.h3, %h3 {
+	@include font-size(2.5, $font-medium, normal, 1.25);
+}
+
+.h4, %h4 {
+	@include font-size(2, $font-medium, normal, 1.25);
+}
+
+.h5, %h5 {
+	@include font-size(1.5, $font-medium, normal, 1.25);
+}
+
+.h6, %h6 {
+	@include font-size(1.25, $font-medium, normal, 1.25);
+}
+
+.subtitle, %subtitle {
+	@include font-size(1.125);
+}
+
+.body, %body {
+	@include font-size(1);
+}
+
+.caption, %caption {
+	@include font-size(0.875);
+	font-weight: $font-medium;
+	color: $text-alt;
+}
+
+.overline, %overline {
+	@include font-size(0.75);
+}
+
+// ——————————————————————————————————————————————————
+// style
+// ——————————————————————————————————————————————————
+
+.text--italic, %text--italic { font-style: italic; }
+.text--underline, %text--underline { text-decoration: underline; }
+.text--strikeThrough, %text--strikeThrough { text-decoration: line-through; }
+
+// ——————————————————————————————————————————————————
+// weight
+// ——————————————————————————————————————————————————
+
+.text--regular, %text--regular { font-weight: $font-regular; }
+.text--bold, %text--bold { font-weight: $font-medium; }
+.text--black, %text--black { font-weight: $font-black; }
+
+// ——————————————————————————————————————————————————
+// alignement
+// ——————————————————————————————————————————————————
+
+.text--left, %text--left { text-align: left; }
+.text--center, %text--center { text-align: center; }
+.text--right, %text--right { text-align: right; }
+
+// ——————————————————————————————————————————————————
+// color
+// ——————————————————————————————————————————————————
+
+@mixin color($prefix, $colors...) {
+	@each $i in $colors {
+		.#{$prefix}#{nth($i, 1)} {
+			color: nth($i, 2);
+
+			.h1, .h2, .h3, .h4, .h5, .h6 {
+				color: nth($i, 2) !important;
+			}
+		}
+	}
+}
+
+@include color('text--',
+	'default' 			$text								$text-contrast,
+	'alt' 					$text-alt						$text-contrast-alt,
+	'contrast' 			$text-contrast 			$text,
+	'contrastAlt' 	$text-contrast-alt 	$text-alt,
+	'primary' 			$primary 						$primary
+);

@@ -1,0 +1,196 @@
+// ——————————————————————————————————————————————————
+// navbar
+// nav
+// ——————————————————————————————————————————————————
+
+// ——————————————————————————————————————————————————
+// navbar
+// ——————————————————————————————————————————————————
+
+.navbar {
+  top: 0;
+  left: 0;
+  width: 100vw;
+  background-color: $background-default;
+
+  @include responsive(up, tablet) {
+    height: $spacing-xl;
+  }
+
+  &.section {
+    position: sticky;
+  }
+
+  .section__container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: $spacing-lg - $spacing-md;
+    padding-bottom: 0;
+    border-bottom: $border;
+
+    @include responsive(up, tablet) {
+      height: 100%;
+    }
+
+    @include responsive(down, tablet) {
+      flex-direction: column;
+      align-items: stretch;
+      padding-top: 0;
+    }
+  }
+
+  &__button {
+    top: $spacing-md*1.5;
+    position: absolute;
+  }
+
+  &__main {
+    display: flex;
+    align-items: center;
+
+    @include responsive(down, tablet) {
+      justify-content: space-between;
+      padding-left: $spacing-lg;
+      height: $spacing-xl - $spacing-md;
+    }
+  }
+
+  &__logo {
+    display: flex;
+    align-items: baseline;
+
+    > * {
+      margin-right: $spacing-xs;
+    }
+  }
+
+  &__nav.nav {
+
+    @include responsive(down, tablet) {
+      @include transition($transition-md, max-height);
+      align-items: flex-start;
+      max-height: 0;
+      overflow: hidden;
+
+      .js-opened & {
+        max-height: 50vh;
+      }
+    }
+  }
+}
+
+// ——————————————————————————————————————————————————
+// nav
+// ——————————————————————————————————————————————————
+
+.nav {
+
+  @include responsive(up, tablet) {
+    height: 100%;
+  }
+
+  &__container {
+    display: flex;
+    list-style: none;
+
+    @include responsive(up, tablet) {
+      height: 100%;
+    }
+
+    @include responsive(down, tablet) {
+      @include calc(max-height, '100vh - '$spacing-xl*3);
+      align-items: flex-start;
+      // overflow: scroll;
+      width: 100%;
+      padding-bottom: $spacing-md;
+      flex-direction: column;
+      width: 100%;
+    }
+  }
+
+  &__item {
+    // override ul & li styling
+    margin-left: 0;
+
+    & + & {
+      padding-top: 0;
+    }
+
+    @include responsive(down, tablet) {
+      width: 100%;
+      display: flex;
+    }
+  }
+
+  &__trigger {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    line-height: 1;
+    height: 100%;
+    color: inherit;
+    padding-right: $spacing-md;
+    padding-left: $spacing-md;
+
+    &:not(.nav__trigger--active) {
+      animation: get-thin $transition-md;
+      will-change: font-weight;
+
+      @include hover {
+        animation: get-bold $transition-md forwards;
+        font-weight: $font-medium;
+      }
+    }
+
+    @include responsive(down, tablet) {
+      width: 100%;
+      margin-bottom: $spacing-xs;
+      padding: $spacing-md - $spacing-xs;
+      align-items: flex-start;
+      border-radius: $border-radius-sm;
+
+      @include hover {
+        background-color: $background-paper;
+      }
+    }
+
+    &--active {
+      font-weight: $font-medium;
+      color: $primary;
+
+      @include responsive(up, tablet) {
+
+        &:after {
+          content: "";
+          position: absolute;
+          bottom: -1px;
+          left: 0;
+          width: 100%;
+          height: $spacing-xs;
+          background-color: $primary;
+        }
+      }
+
+      @include responsive(down, tablet) {
+        background-color: $background-paper;
+      }
+    }
+
+    &:before {
+      content: attr(data-text);
+      height: 0;
+      visibility: hidden;
+      overflow: hidden;
+      user-select: none;
+      pointer-events: none;
+      font-weight: $font-medium;
+
+      @media speech {
+        display: none;
+      }
+    }
+  }
+}

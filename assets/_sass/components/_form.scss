@@ -1,0 +1,68 @@
+// —————————————————————————————————————————————————————————————————
+// reset
+// general
+// focused
+// —————————————————————————————————————————————————————————————————
+
+// —————————————————————————————————————————————————————————————————
+// reset
+// —————————————————————————————————————————————————————————————————
+
+textarea:focus,
+input:focus {
+	outline: none;
+}
+
+// —————————————————————————————————————————————————————————————————
+// general
+// —————————————————————————————————————————————————————————————————
+
+.form {
+	width: 100%;
+
+	&__label {
+		@extend %caption;
+		@include transition($transition-md, color);
+		text-overflow: ellipsis;
+		cursor: pointer;
+		display: block;
+		overflow: hidden;
+		white-space: nowrap;
+		position: relative;
+		padding-bottom: $spacing-sm;
+	}
+
+	&__input {
+		@include font-size(1, $font-regular, normal);
+		@include transition($transition-md, border-color);
+		font-family: $font;
+		text-overflow: ellipsis;
+		width: 100%;
+    border: $spacing-xs solid transparent;
+    border-radius: $border-radius-md !important;
+    padding: $spacing-sm;
+		background-color: $background-paper;
+	}
+
+	&__button {
+		margin-top: $spacing-md;
+	}
+}
+
+@include placeholder {
+	color: $text-alt;
+	opacity: 1;
+}
+
+// —————————————————————————————————————————————————————————————————
+// focused
+// —————————————————————————————————————————————————————————————————
+
+.form__group.focused {
+
+	.form {
+
+		&__label { color: $primary; }
+		&__input { border-color: $primary; }
+	}
+}

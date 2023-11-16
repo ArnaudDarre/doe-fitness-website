@@ -1,0 +1,139 @@
+// —————————————————————————————————————————————————————————————————
+// color
+// spacing
+// font
+// anchor points
+// misc
+// —————————————————————————————————————————————————————————————————
+
+// —————————————————————————————————————————————————————————————————
+// color
+// —————————————————————————————————————————————————————————————————
+
+// main
+
+$white: #ffffff;
+$black: #000a1e;
+
+// grey
+
+$grey-90: #1A2335;
+$grey-80: #333B4B;
+$grey-70: #4D5462;
+$grey-60: #666C78;
+$grey-50: #7F848E;
+$grey-40: #999DA5;
+$grey-30: #B2B5BB;
+$grey-20: #CCCED2;
+$grey-10: #E5E6E8;
+$grey-5: #F2F3F4;
+
+// text
+
+$text: $black;
+$text-alt: rgba($black, 0.5);
+
+$text-contrast: $white;
+$text-contrast-alt: rgba($white, 0.6);
+
+//  background
+
+$background-default: $white;
+$background-paper: $grey-5;
+
+$background-default-dark: $black;
+$background-paper-dark: $grey-90;
+
+// brand
+
+$primary-light: #E3F9F9;
+$primary: #00A6A1;
+$primary-dark: #00706D;
+$primary-text: $text-contrast;
+
+// others
+
+$border: 1px solid rgba($black, 0.2);
+$border-dark: 1px solid rgba($white, 0.3);
+
+$overlay: rgba($white, 0.8);
+$overlay-dark: rgba($black, 0.7);
+
+// social
+
+$linkedin: #0077B5;
+
+// —————————————————————————————————————————————————————————————————
+// spacing
+// —————————————————————————————————————————————————————————————————
+
+// misc
+$col: 100%/12;
+
+$spacing-xs: 0.25rem; // 4px
+$spacing-sm: 0.5rem; // 8px
+$spacing-md: 1rem; // 16px
+$spacing-lg: 2.5rem; // 40px
+$spacing-xl: 5rem; // 80px
+$spacing-xxl: 7.5rem; // 120px
+
+$spacing-section-vertical: clamp($spacing-lg, 8vw, $spacing-xl);
+$spacing-section-horizontal: clamp($spacing-md, 4vw, $spacing-xl);
+$spacing-section-horizontal-2: clamp($spacing-md*2, 8vw, $spacing-xl*2);
+$spacing-section-horizontal-negative: clamp(-$spacing-xl, -4vw, -$spacing-md);
+
+// —————————————————————————————————————————————————————————————————
+// font
+// —————————————————————————————————————————————————————————————————
+
+// typefaces
+
+$font-title: "Baloo", Verdana, Geneva, sans-serif;
+$font: "Barlow", Verdana, Geneva, sans-serif;
+
+// weight
+
+$font-regular: 400;
+$font-medium: 500;
+$font-black: 900;
+
+// —————————————————————————————————————————————————————————————————
+// anchor points
+// —————————————————————————————————————————————————————————————————
+
+$desktop-lg-up: 1440px;
+$desktop-lg-down: 1439.98px;
+
+$desktop-up: 1280px;
+$desktop-down: 1279.98px;
+
+$laptop-up: 1024px;
+$laptop-down: 1023.98px;
+
+$tablet-up: 768px;
+$tablet-down: 767.98px;
+
+$mobile-up: 568px;
+$mobile-down: 567.98px;
+
+$mobile-sm-up: 350px;
+$mobile-sm-down: 349.98px;
+
+// —————————————————————————————————————————————————————————————————
+// misc
+// —————————————————————————————————————————————————————————————————
+
+// box-shadow
+
+$box-shadow: 0 0 $spacing-sm 0 rgba($black, 0.2);
+
+// transition
+
+$transition-md: 0.4s ease 0s;
+$transition-lg: 0.8s ease 0s;
+
+// border-radius
+
+$border-radius-sm: $spacing-xs;
+$border-radius-md: $spacing-sm;
+$border-radius-lg: $spacing-md;

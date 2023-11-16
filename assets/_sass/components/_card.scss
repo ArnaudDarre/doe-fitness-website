@@ -1,0 +1,108 @@
+// —————————————————————————————————————————————————————————————————
+// elements
+// size
+// variants
+// —————————————————————————————————————————————————————————————————
+
+// —————————————————————————————————————————————————————————————————
+// elements
+// —————————————————————————————————————————————————————————————————
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  &__label {
+    @extend %caption;
+  }
+
+  &__subtitle {
+    font-weight: $font-medium;
+  }
+
+  &__media,
+  &__mediaInner {
+    overflow: hidden;
+    border-radius: $border-radius-md;
+  }
+
+  &__mediaInner {
+    padding-bottom: 66.66%;
+  }
+
+  &__content {
+    position: relative;
+  }
+
+  &__actions {
+    margin-top: auto; // when grid with multiple cards, aligns the buttons vertically at the bottom of the card
+  }
+}
+
+// —————————————————————————————————————————————————————————————————
+// size
+// —————————————————————————————————————————————————————————————————
+
+@mixin size($proportion, $size) {
+
+  .card {
+
+		&__media,
+		&__header,
+		&__content,
+		&__actions {
+
+			&:not(:first-child) {
+				margin-top: $size;
+			}
+		}
+
+		&__image {
+			border-radius: $size/3;
+		}
+
+		&__label {
+
+			& + .card__title {
+        margin-top: $size/3;
+			}
+		}
+	
+		&__title,
+		&__subtitle {
+	
+			& + .card__subtitle {
+				margin-top: $size/2;
+			}
+		}
+
+    &__title {
+
+      @if $proportion == xs { @extend %body; @extend %text--bold; }
+      @else if $proportion == sm { @extend %subtitle; @extend %text--bold; }
+      @else if $proportion == md { @extend %h6; }
+      @else if $proportion == lg { @extend %h5; }
+      @else if $proportion == xl { @extend %h2; }
+    }
+	}
+
+  &.card--background {
+    background-color: $background-default;
+    padding: $size*2;
+    border-radius: $size;
+  }
+}
+
+.card {
+
+  &--xs { @include size(xs, $spacing-sm); }
+  &--sm { @include size(sm, $spacing-md); }
+	&--md { @include size(md, $spacing-md); }
+	&--lg { @include size(lg, $spacing-md); }
+	&--xl { @include size(xl, $spacing-md*2); }
+}
+
+// —————————————————————————————————————————————————————————————————
+// variants
+// —————————————————————————————————————————————————————————————————

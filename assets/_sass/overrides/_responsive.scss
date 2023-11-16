@@ -1,0 +1,32 @@
+// —————————————————————————————————————————————————————————————————
+// variables
+// general
+// specific
+// —————————————————————————————————————————————————————————————————
+
+// —————————————————————————————————————————————————————————————————
+// variables
+// —————————————————————————————————————————————————————————————————
+
+$spacing-laptop: $spacing-lg - $spacing-md;
+$spacing-tablet: $spacing-md;
+$spacing-mobile: $spacing-md - $spacing-xs;
+
+// —————————————————————————————————————————————————————————————————
+// mixins
+// —————————————————————————————————————————————————————————————————
+
+@mixin responsive-classes($viewport, $spacing) {
+
+	@include responsive(down, $viewport) {
+
+	}
+}
+
+@include responsive-classes(laptop, $spacing-laptop);
+@include responsive-classes(tablet, $spacing-tablet);
+@include responsive-classes(mobile, $spacing-mobile);
+
+// —————————————————————————————————————————————————————————————————
+// specific
+// —————————————————————————————————————————————————————————————————

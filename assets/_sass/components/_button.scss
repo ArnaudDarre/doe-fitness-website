@@ -1,0 +1,202 @@
+// —————————————————————————————————————————————————————————————————
+// elements
+// size
+// animate
+// color
+// menu
+// overrides
+// —————————————————————————————————————————————————————————————————
+
+// —————————————————————————————————————————————————————————————————
+// elements
+// —————————————————————————————————————————————————————————————————
+
+.button {
+	cursor: pointer;
+	overflow: hidden;
+  border: 0;
+  display: inline-flex;
+  border-radius: $border-radius-sm;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+  text-transform: uppercase;
+  font-weight: $font-medium;
+  @include transition($transition-md, background-color);
+  white-space: nowrap;
+
+  &.disabled,
+  &:disabled {
+    opacity: .65;
+    cursor: not-allowed;
+  }
+
+  &:hover {
+		text-decoration: none;
+	}
+}
+
+.buttons {
+  margin: -$spacing-xs;
+
+  .button {
+    margin: $spacing-xs
+  }
+}
+
+// —————————————————————————————————————————————————————————————————
+// size
+// —————————————————————————————————————————————————————————————————
+
+@mixin size($proportion, $size) {
+	height: $size;
+  padding-right: $size/2.5;
+  padding-left: $size/2.5;
+	
+	.button__inner {
+		@if $proportion == sm { font-size: 0.875rem; }
+		@else if $proportion == md { font-size: 1rem; }
+		@else if $proportion == lg { font-size: 1.125rem; }
+		letter-spacing: $size/100;
+	}
+
+  svg {
+    width: $size/1.75;
+    height: $size/1.75;
+
+    &:first-child {
+      margin-right: $size/4;
+      margin-left: -$size/8;
+    }
+
+    &:last-child {
+      margin-right: -$size/8;
+      margin-left: $size/4;
+    }
+  }
+
+  &.button--icon {
+    font-size: $size/1.75;
+    width: $size;
+    height: $size;
+    padding: $size/4;
+
+    svg {
+      width: $size/1.75;
+      height: $size/1.75;
+      margin-right: 0;
+      margin-left: 0;
+    }
+  }
+}
+
+.button {
+
+  @include size(md, $spacing-md*2);
+  &--sm { @include size(sm, $spacing-md*1.5); }
+  &--lg { @include size(lg, $spacing-lg); }
+}
+
+// —————————————————————————————————————————————————————————————————
+// animate
+// —————————————————————————————————————————————————————————————————
+
+.button--animate {
+
+	.button__inner,
+	svg {
+    @include transition($transition-md, transform);
+	}
+
+	svg {
+		position: absolute;
+		margin: 0 !important;
+		transform: translateX(-800%);
+	}
+
+	@include hover {
+
+		.button__inner { transform: translateX(140%); }
+		svg { transform: translateX(0); }
+	}
+}
+
+// —————————————————————————————————————————————————————————————————
+// color
+// —————————————————————————————————————————————————————————————————
+
+@include button-fill-color('button--',
+// prefix				background				color
+	'primary'			$primary					$primary-text,
+	'grey'				$background-paper	$text
+);
+
+// —————————————————————————————————————————————————————————————————
+// menu
+// —————————————————————————————————————————————————————————————————
+
+.button--menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: button-menu-opacity $transition-lg;
+  cursor: pointer;
+  position: relative;
+  overflow: visible;
+  width: $spacing-md;
+  height: $spacing-md;
+  background-color: transparent !important;
+  border: 0;
+  padding: 0;
+
+  &:before,
+  &:after,
+  .button__inner {
+    background-color: $text;
+  }
+
+  &:before,
+  &:after {
+    @include pseudo-element('', auto, auto, auto, auto, $spacing-md, 2px);
+    @include transition($transition-md, transform);
+    border-radius: 0.15rem;
+  }
+
+  &:before {
+    transform: translateY($spacing-xs*1.5);
+    animation: button-menu-close-before $transition-lg;
+  }
+
+  &:after {
+    transform: translateY(-$spacing-xs*1.5);
+    animation: button-menu-close-after $transition-lg;
+  }
+
+  .button__inner {
+    @include transition($transition-md, opacity);
+    border-radius: 0.15rem;
+    width: $spacing-md;
+    height: 2px;
+    position: absolute;
+  }
+
+  &.button--menu--open {
+
+    &:before {
+      animation: button-menu-open-before $transition-lg forwards;
+    }
+
+    &:after {
+      animation: button-menu-open-after $transition-lg forwards;
+    }
+
+    .button__inner {
+      opacity: 0;
+    }
+  }
+}
+
+// —————————————————————————————————————————————————————————————————
+// overrides
+// —————————————————————————————————————————————————————————————————

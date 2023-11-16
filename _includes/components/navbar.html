@@ -1,0 +1,23 @@
+<header class="section navbar">
+  <div class="section__container">
+    <button aria-label="Open mobile menu" class="navbar__button js-button-menu button--menu show-tablet">
+      <i class="button__inner"></i>
+    </button>
+    <div class="navbar__main">
+      <div class="navbar__logo text--bold">
+        <h1 class="text--primary">
+          <a href="{% link index.html %}">{{ site.title }}</a>
+        </h1>
+      </div>
+    </div>
+    <nav class="navbar__nav nav">
+      <ul class="nav__container">
+        {% for item in site.data.nav %}
+        <li class="nav__item">
+          <a class="nav__trigger{% if page.title == item.title or page.layout == item.collection %} nav__trigger--active{% endif %}" href="#{{ item.title | slugify }}" data-text="{{ item.title }}">{{ item.title }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
+</header>

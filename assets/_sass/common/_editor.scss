@@ -1,0 +1,115 @@
+// ——————————————————————————————————————————————————
+// general
+// misc
+// ——————————————————————————————————————————————————
+
+// ——————————————————————————————————————————————————
+// general
+// ——————————————————————————————————————————————————
+
+.editor, %editor {
+
+  h2, h3, p,
+  ol, ul,
+  a,
+  blockquote {
+    text-align: left;
+  }
+
+  h2 { @extend %h4; }
+  h3 { @extend %h5; }
+  blockquote { @extend %h6; }
+
+  h2 {
+
+    &:not(:first-child) { margin-top: $spacing-md; }
+    &:not(:last-child) { margin-bottom: $spacing-md; }
+  }
+
+  h3 {
+
+    &:not(:first-child) { margin-top: $spacing-md; }
+    &:not(:last-child) { margin-bottom: $spacing-md; }
+  }
+
+  p,
+  ol, ul,
+  p + a, a + p {
+
+    &:not(:first-child) { margin-top: 0.75em; }
+  }
+
+  ol,
+  ul {
+    margin-left: $spacing-md;
+  }
+
+  ol { list-style: decimal; }
+  ul { list-style: disc; }
+
+  li + li {
+    margin-top: $spacing-xs;
+  }
+
+  li {
+
+    > ul {
+      margin-top: 0.25rem !important;
+    }
+
+    &:not(:last-child) {
+
+      > ul {
+        margin-bottom: 0.25rem;
+      }
+    }
+  }
+
+  strong {
+    font-weight: $font-medium;
+  }
+
+  em {
+    font-style: italic;
+  }
+
+  blockquote {
+    position: relative;
+
+    &:before {
+      @include pseudo-element('”', -$spacing-md, auto, auto, -$spacing-sm, auto, auto);
+      z-index: -1;
+      font-size: 20rem;
+      color: rgba($primary, 0.1);
+    }
+
+    &:not(:first-child) {
+      margin-top: 1rem;
+    }
+
+    p:not(.caption) {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+// ——————————————————————————————————————————————————
+// misc
+// ——————————————————————————————————————————————————
+
+.editor {
+
+  .section__content {
+
+    + h2, + h3, + p, + ol, + ul, + a, + blockquote {
+      margin-top: $spacing-md - $spacing-xs !important;
+    }
+  }
+
+  h2, h3, p, ol, ul, a, blockquote {
+
+    & + .section__content {
+      margin-top: $spacing-md - $spacing-xs;
+    }
+  }
+}

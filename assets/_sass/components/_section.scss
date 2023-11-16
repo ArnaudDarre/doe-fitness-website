@@ -1,0 +1,113 @@
+// —————————————————————————————————————————————————————————————————
+// elements
+// alignement
+// color
+// variants
+// overrides
+// —————————————————————————————————————————————————————————————————
+
+// —————————————————————————————————————————————————————————————————
+// elements
+// —————————————————————————————————————————————————————————————————
+
+.section {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  padding-right: $spacing-section-horizontal;
+  padding-left: $spacing-section-horizontal;
+  text-align: center;
+
+  &__container,
+  &__header,
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__container {
+    width: 100%;
+    padding-top: $spacing-section-vertical;
+    padding-bottom: $spacing-section-vertical;
+    max-width: $desktop-up;
+    position: relative; // needed to have the content over section--landing:before
+  }
+
+  &__header {
+
+    & + .section__content {
+      margin-top: $spacing-section-vertical;
+    }
+  }
+
+  &__content {
+
+    & + & {
+      margin-top: $spacing-lg;
+    }
+  }
+
+  &__title {
+    @extend %h2;
+    max-width: $desktop-up*0.5;
+  }
+  
+  &__subtitle {
+    @extend %subtitle;
+    margin-top: $spacing-lg - $spacing-md;
+    max-width: $desktop-up*0.5;
+  }
+
+  &__actions { margin-top: $spacing-lg; }
+}
+
+// —————————————————————————————————————————————————————————————————
+// alignement
+// —————————————————————————————————————————————————————————————————
+
+.section {
+
+  &--left { align-items: flex-start; text-align: left; }
+  &--center { align-items: center; text-align: center; }
+  &--right { align-items: flex-end; text-align: right; }
+}
+
+// —————————————————————————————————————————————————————————————————
+// color
+// —————————————————————————————————————————————————————————————————
+
+.section {
+
+  &--paper {
+    background-color: $background-paper;
+  }
+}
+
+// —————————————————————————————————————————————————————————————————
+// variants
+// —————————————————————————————————————————————————————————————————
+
+.section--landing {
+  @include calc(min-height, '100vh - '$spacing-lg); // remove on finalised website
+  margin-bottom: $spacing-lg; // remove on finalised website
+  color: $primary-text;
+  align-items: center;
+
+  &:before {
+		content: "";
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background-color: rgba($primary-dark, 0.7);
+	}
+
+  .section__title { @extend %h1; }
+  .section__subtitle { @extend %h5; }
+}
+
+// —————————————————————————————————————————————————————————————————
+// overrides
+// —————————————————————————————————————————————————————————————————

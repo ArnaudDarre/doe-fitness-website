@@ -1,0 +1,154 @@
+// —————————————————————————————————————————————————————————————————
+// elements
+// variants
+// spacing
+// width
+// direction
+// justifyContent
+// alignItems
+// —————————————————————————————————————————————————————————————————
+
+// —————————————————————————————————————————————————————————————————
+// elements
+// —————————————————————————————————————————————————————————————————
+
+.grid {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  position: relative;
+
+  &__item {
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
+    position: relative;
+    float: left;
+    width: 100%;
+ 
+    &.grid {
+      width: 100%;
+      flex-direction: row;
+    }
+  }
+}
+
+// —————————————————————————————————————————————————————————————————
+// variants
+// —————————————————————————————————————————————————————————————————
+
+.grid {
+
+  // display a bigger top margin betweem grid wrappers
+  &--container {
+
+    & + & {
+      margin-top: 3rem;
+    }
+  }  
+}
+
+// —————————————————————————————————————————————————————————————————
+// spacing
+// —————————————————————————————————————————————————————————————————
+
+@for $spacingWidth from 1 through 12 {
+
+  .grid--spacing#{$spacingWidth} {
+    margin: -($spacingWidth * 0.5rem)/2;
+    width: calc(100% + #{$spacingWidth * 0.5rem});
+
+    > .grid__item {
+      padding: ($spacingWidth * 0.5rem)/2;
+    }
+
+    &.grid__item {
+      width: calc(100% + #{$spacingWidth * 0.5rem});
+    }
+  }
+}
+
+// —————————————————————————————————————————————————————————————————
+// width
+// —————————————————————————————————————————————————————————————————
+
+@for $colWidth from 1 through 12 {
+
+  .grid__item--#{$colWidth} {
+    width: $colWidth*$col;
+
+    &.grid {
+      width: $colWidth*$col;
+    }
+
+    @for $spacingWidth from 1 through 12 {
+
+      &.grid--spacing#{$spacingWidth} {
+        width: calc(#{$colWidth*$col} + #{$spacingWidth * 0.5rem});
+      }
+    }
+  }
+}
+
+@mixin break-width($breakpoint) {
+
+  @include responsive(up, $breakpoint) {
+
+    @for $colWidth from 1 through 12 {
+
+      &#{$colWidth} {
+        width: $colWidth*$col;
+
+        &.grid {
+          width: $colWidth*$col;
+        }
+
+        @for $spacingWidth from 1 through 12 {
+
+          &.grid--spacing#{$spacingWidth} {
+            width: calc(#{$colWidth*$col} + #{$spacingWidth * 0.5rem});
+          }
+        }
+      }
+    }
+  }
+}
+
+.grid__item {
+
+  &--xs { @include break-width(mobile-sm); }
+  &--sm { @include break-width(mobile); }
+  &--md { @include break-width(tablet); }
+  &--lg { @include break-width(laptop); }
+  &--xl { @include break-width(desktop); }
+}
+
+// —————————————————————————————————————————————————————————————————
+// direction
+// —————————————————————————————————————————————————————————————————
+
+.grid--column { flex-direction: column !important; }
+.grid--columnReverse { flex-direction: column-reverse !important; }
+.grid--row { flex-direction: row; flex-wrap: nowrap !important; }
+.grid--rowReverse { flex-direction: row-reverse; flex-wrap: nowrap !important; }
+
+// —————————————————————————————————————————————————————————————————
+// justifyContent
+// —————————————————————————————————————————————————————————————————
+
+.grid--jcCenter { justify-content: center !important; }
+.grid--jcEnd { justify-content: flex-end !important; }
+.grid--jcStart { justify-content: flex-start !important; }
+.grid--jcSpaceAround { justify-content: space-around !important; }
+.grid--jcSpaceBetween { justify-content: space-between !important; }
+.grid--jcSpaceEvenly { justify-content: space-evenly !important; }
+
+// —————————————————————————————————————————————————————————————————
+// alignItems
+// —————————————————————————————————————————————————————————————————
+
+.grid--aiCenter { align-items: center !important; }
+.grid--aiEnd { align-items: flex-end !important; }
+.grid--aiStart { align-items: flex-start !important; }
+.grid--aiStretch { align-items: stretch !important; }
+.grid--aiBaseline { align-items: baseline !important; }

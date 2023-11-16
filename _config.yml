@@ -1,0 +1,53 @@
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+title: Doe Fitness
+description: >-
+  Improving the food environment and wellbeing in communities
+
+# Additional settings
+timezone: America/New_York
+permalink: /:title
+
+# PLUGINS
+plugins:
+  - jekyll-autoprefixer
+  - jekyll-coffeescript
+  - jekyll-inline-svg
+# jekyll-inline-svg
+svg:
+  optimize: true
+# compress vendor
+# http://jch.penibelst.de/
+compress_html:
+  clippings: []
+  comments: ["<!-- ", " -->"]
+  endings: []
+  ignore:
+    envs: []
+  blanklines: true
+  profile: false
+  startings: []
+# autoprefixer
+autoprefixer:
+  browsers:
+  - last 10 versions
+# sass
+sass:
+  sass_dir: assets/_sass
+  style: compressed
+
+# Exclude from processing.
+# The following items will not be processed, by default. Create a custom list
+# to override the default setting.
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - _backup/
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - .sass-cache
