@@ -41,7 +41,6 @@
       default:
         break;
     }
-    console.log(carouselCount);
     for (var i = 0; i < slides.length; i += 1) {
       slides[i].setAttribute('style', 'transform:translateX(-' + carouselCount + '%)');
     }
