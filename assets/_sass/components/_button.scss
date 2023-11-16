@@ -82,11 +82,11 @@
     font-size: $size/1.75;
     width: $size;
     height: $size;
-    padding: $size/4;
+    padding: $size/8;
 
     svg {
-      width: $size/1.75;
-      height: $size/1.75;
+      width: $size/1.5;
+      height: $size/1.5;
       margin-right: 0;
       margin-left: 0;
     }
@@ -129,9 +129,13 @@
 // —————————————————————————————————————————————————————————————————
 
 @include button-fill-color('button--',
-// prefix				background				  color
-	'primary'			$primary					  $primary-text,
-	'white'				$background-default	$primary
+	'primary' $primary $primary-text,
+	'white' $background-default $primary,
+
+  'instagram' $instagram $text-contrast,
+  'facebook' $facebook $text-contrast,
+  'youtube' $youtube $text-contrast,
+  'linkedin' $linkedin $text-contrast
 );
 
 // —————————————————————————————————————————————————————————————————

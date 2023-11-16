@@ -1,0 +1,21 @@
+.footer {
+ 
+  .section__content {
+    width: 100%;
+    text-align: left;
+    align-items: flex-start;
+    
+    @include responsive(up, tablet) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  .card {
+    align-items: flex-start;
+
+    @include responsive(down, tablet) {
+      margin-bottom: $spacing-md;
+    }
+  }
+}

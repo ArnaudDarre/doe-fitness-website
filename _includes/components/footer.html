@@ -1,7 +1,21 @@
 <footer class="section section--paper footer">
   <div class="section__container">
     <div class="section__content">
-      <p>{{ site.title }}</p>
+      <div class="card card--md">
+        <div class="card__content">
+          {% svg assets/graphic/logo.svg class="navbar__logo" %}
+        </div>
+        <div class="card__content overline">
+          <p>© Copyright 2023 Doe Fitness. All rights reserved.</p>
+          <p>Doe Fitness is a company registered in the USA. Company No. 85939582.</p>
+        </div>
+      </div>
+      <div>
+        <span class="button button--md button--icon button--instagram">{% svg assets/icons/instagram.svg %}</span>
+        <span class="button button--md button--icon button--facebook">{% svg assets/icons/facebook.svg %}</span>
+        <span class="button button--md button--icon button--youtube">{% svg assets/icons/youtube.svg %}</span>
+        <span class="button button--md button--icon button--linkedin">{% svg assets/icons/linkedin.svg %}</span>
+      </div>
     </div>
   </div>
 </footer>
