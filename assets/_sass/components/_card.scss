@@ -118,19 +118,46 @@
   padding: $spacing-lg;
   border-radius: $border-radius-md;
   overflow: hidden;
+  justify-content: flex-end;
 
   &:before {
     content: "";
+    @include transition($transition-md, height);
     position: absolute;
-    top: 0;
+    height: 200px;
     right: 0;
     bottom: 0;
     left: 0;
+  }
+
+  &:before {
     background-color: rgba($background-default, 0.8);
   }
 
   > * {
     position: relative;
+    z-index: 2;
+  }
+
+  .card__title,
+  .card__content {
+    @include transition($transition-md, opacity, transform);
+    transform: translateY(-40px);
+  }
+
+  .card__content {
+    opacity: 0;
+  }
+
+  @include hover {
+
+    &:before { height: 100%; }
+
+    .card__title,
+    .card__content {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
 
