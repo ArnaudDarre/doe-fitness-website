@@ -90,7 +90,12 @@
   &__container {
     display: flex;
     align-items: center;
-    list-style: none;
+    
+    ul {
+      display: flex;
+      align-items: center;
+      list-style: none;
+    }
 
     @include responsive(up, tablet) {
       height: 100%;
@@ -100,10 +105,15 @@
       @include calc(max-height, '100vh - '$spacing-xl*3);
       align-items: flex-start;
       // overflow: scroll;
-      width: 100%;
       padding-bottom: $spacing-md;
       flex-direction: column;
       width: 100%;
+      
+      ul {
+        width: 100%;
+        align-items: flex-start;
+        flex-direction: column;
+      }
     }
   }
 
