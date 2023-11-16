@@ -12,6 +12,7 @@
   left: 0;
   width: 100vw;
   background-color: $background-default;
+  box-shadow: $box-shadow;
 
   @include responsive(up, tablet) {
     height: $spacing-navbar;
@@ -57,11 +58,8 @@
 
   &__logo {
     display: flex;
-    align-items: baseline;
-
-    > * {
-      margin-right: $spacing-xs;
-    }
+    height: 24px;
+    width: auto;
   }
 
   &__nav.nav {
@@ -109,6 +107,12 @@
     }
   }
 
+  .button {
+
+    @include responsive(up, tablet) { margin-left: $spacing-md; }
+    @include responsive(down, tablet) { margin-top: $spacing-md; margin-bottom: $spacing-md; }
+  }
+
   &__item {
     // override ul & li styling
     margin-left: 0;
@@ -136,13 +140,8 @@
     padding-right: $spacing-md;
     padding-left: $spacing-md;
 
-    &:not(.nav__trigger--active) {
-      animation: get-thin $transition-md;
-      will-change: font-weight;
-
-      @include hover {
-        font-weight: $font-medium;
-      }
+    @include hover {
+      font-weight: $font-medium;
     }
 
     @include responsive(down, tablet) {
@@ -157,7 +156,7 @@
       }
     }
 
-    &--active {
+    &.js-active {
       font-weight: $font-medium;
       color: $primary;
 
@@ -166,7 +165,7 @@
         &:after {
           content: "";
           position: absolute;
-          bottom: -1px;
+          bottom: -$spacing-md*1.5;
           left: 0;
           width: 100%;
           height: $spacing-xs;
