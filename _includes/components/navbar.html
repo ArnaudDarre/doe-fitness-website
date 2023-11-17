@@ -1,10 +1,13 @@
 <header class="section navbar">
   <div class="section__container">
-    <button aria-label="Open mobile menu" class="navbar__button js-button-menu button--menu show-tablet">
+    <button aria-label="Open mobile menu" class="navbar__button js-button-menu button--menu show-laptop">
       <i class="button__inner"></i>
     </button>
     <div class="navbar__main">
       <a href="{% link index.html %}" aria-label="Go back to top of the page">{% svg assets/graphic/logo.svg class="navbar__logo" %}</a>
+      <div class="show-laptop">
+        {% include components/button.html size="sm" %}
+      </div>
     </div>
     <nav class="navbar__nav nav">
       <div class="nav__container">
@@ -15,7 +18,10 @@
           </li>
           {% endfor %}
         </ul>
-        {% include components/button.html size="sm" %}
+        <div class="hide-laptop">
+          {% include components/button.html size="sm" %}
+        </div>
+        {% include components/social.html size="sm" %}
       </div>
     </nav>
   </div>

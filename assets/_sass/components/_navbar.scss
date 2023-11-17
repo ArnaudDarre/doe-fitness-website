@@ -12,9 +12,9 @@
   left: 0;
   width: 100vw;
   background-color: $background-default;
-  box-shadow: $box-shadow;
+  box-shadow: $box-shadow-md;
 
-  @include responsive(up, tablet) {
+  @include responsive(up, laptop) {
     height: $spacing-navbar;
   }
 
@@ -29,11 +29,11 @@
     padding-top: 0;
     padding-bottom: 0;
 
-    @include responsive(up, tablet) {
+    @include responsive(up, laptop) {
       height: 100%;
     }
 
-    @include responsive(down, tablet) {
+    @include responsive(down, laptop) {
       flex-direction: column;
       align-items: stretch;
       padding-top: 0;
@@ -49,7 +49,7 @@
     display: flex;
     align-items: center;
 
-    @include responsive(down, tablet) {
+    @include responsive(down, laptop) {
       justify-content: space-between;
       padding-left: $spacing-lg;
       height: $spacing-xl - $spacing-md;
@@ -64,7 +64,7 @@
 
   &__nav.nav {
 
-    @include responsive(down, tablet) {
+    @include responsive(down, laptop) {
       @include transition($transition-md, max-height);
       align-items: flex-start;
       max-height: 0;
@@ -83,7 +83,7 @@
 
 .nav {
 
-  @include responsive(up, tablet) {
+  @include responsive(up, laptop) {
     height: 100%;
   }
 
@@ -95,13 +95,17 @@
       display: flex;
       align-items: center;
       list-style: none;
+
+      @include responsive(up, laptop) {
+        height: 100%;
+      }
     }
 
-    @include responsive(up, tablet) {
+    @include responsive(up, laptop) {
       height: 100%;
     }
 
-    @include responsive(down, tablet) {
+    @include responsive(down, laptop) {
       @include calc(max-height, '100vh - '$spacing-xl*3);
       align-items: flex-start;
       // overflow: scroll;
@@ -117,10 +121,11 @@
     }
   }
 
-  .button {
+  .button--contact,
+  .social {
 
-    @include responsive(up, tablet) { margin-left: $spacing-md; }
-    @include responsive(down, tablet) { margin-top: $spacing-md; margin-bottom: $spacing-md; }
+    @include responsive(up, laptop) { margin-left: $spacing-md; }
+    @include responsive(down, laptop) { margin-top: $spacing-md; margin-bottom: $spacing-md; }
   }
 
   &__item {
@@ -132,7 +137,11 @@
       padding-top: 0;
     }
 
-    @include responsive(down, tablet) {
+    @include responsive(up, laptop) {
+      height: 100%;
+    }
+
+    @include responsive(down, laptop) {
       width: 100%;
       display: flex;
     }
@@ -154,7 +163,7 @@
       font-weight: $font-medium;
     }
 
-    @include responsive(down, tablet) {
+    @include responsive(down, laptop) {
       width: 100%;
       margin-bottom: $spacing-xs;
       padding: $spacing-md - $spacing-xs;
@@ -170,12 +179,12 @@
       font-weight: $font-medium;
       color: $primary;
 
-      @include responsive(up, tablet) {
+      @include responsive(up, laptop) {
 
         &:after {
           content: "";
           position: absolute;
-          bottom: -$spacing-md*1.5;
+          bottom: 0;
           left: 0;
           width: 100%;
           height: $spacing-xs;
@@ -183,7 +192,7 @@
         }
       }
 
-      @include responsive(down, tablet) {
+      @include responsive(down, laptop) {
         background-color: $background-paper;
       }
     }

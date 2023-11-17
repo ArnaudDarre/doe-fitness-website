@@ -1,0 +1,8 @@
+{% assign size = include.size %}
+
+<div class="social">
+  <span class="button button--{% if size %}{{ size }}{% else %}md{% endif %} button--icon button--instagram">{% svg assets/icons/instagram.svg %}</span>
+  <span class="button button--{% if size %}{{ size }}{% else %}md{% endif %} button--icon button--facebook">{% svg assets/icons/facebook.svg %}</span>
+  <span class="button button--{% if size %}{{ size }}{% else %}md{% endif %} button--icon button--youtube">{% svg assets/icons/youtube.svg %}</span>
+  <span class="button button--{% if size %}{{ size }}{% else %}md{% endif %} button--icon button--linkedin">{% svg assets/icons/linkedin.svg %}</span>
+</div>
